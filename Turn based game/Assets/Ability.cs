@@ -19,4 +19,12 @@ public class Ability : MonoBehaviour
         }
     }
 
+    public void ReturnTargets()
+    {
+        foreach (AbilityTargeting _attack in attack)
+        {
+            _attack.ChooseTargets();
+        }
+    }
+
 }

@@ -36,7 +36,7 @@ public class BattleManager : MonoBehaviour
 
         if(gameState == GameState.finishedTargetSelecting)
         {
-            target.targetscript.Selected();
+            target.targets = target.targetscript.Selected(target);
             gameState = GameState.cardSelecting;
         }
     }

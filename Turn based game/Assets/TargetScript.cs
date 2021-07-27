@@ -5,7 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class TargetScript
 {
-    public GameObject[] Selected() 
+    
+
+
+    public GameObject[] Selected(AbilityTargeting target) 
     {
         GameObject[] taggedenemies = GameObject.FindGameObjectsWithTag("TaggedEnemy");
         for (int i = 0; i < taggedenemies.Length; i++)
@@ -17,37 +20,42 @@ public class TargetScript
         {
             _taggedEnemy.tag = "Enemy";
         }
+        Debug.Log(target);
 
         return taggedenemies;
+   
     }
-    public void frontRow()
+    public GameObject[] FrontRow()
     {
-
+        WallTargeting leftWall = GameObject.Find("Left").GetComponent<WallTargeting>();
+        return leftWall.targets.ToArray();
     }
 
-    public void middleRow()
+    public GameObject[] MiddleRow()
     {
-
+        WallTargeting leftWall = GameObject.Find("Middle").GetComponent<WallTargeting>();
+        return leftWall.targets.ToArray();
     }
 
-    public void backRow()
+    public GameObject[] BackRow()
     {
-
+        WallTargeting leftWall = GameObject.Find("Right").GetComponent<WallTargeting>();
+        return leftWall.targets.ToArray();
     }
 
-    public void straight()
+    public GameObject[] Straight()
     {
-
+       
+        return GameObject.FindGameObjectsWithTag("Enemy"); ;
     }
 
-    public void diagonal()
+    public void Diagonal()
     {
 
     }
 
     public GameObject[] all()
     {
- 
         return GameObject.FindGameObjectsWithTag("Enemy");
     }
 

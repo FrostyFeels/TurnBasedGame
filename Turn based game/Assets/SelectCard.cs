@@ -8,7 +8,7 @@ public class SelectCard : MonoBehaviour
 
     private void OnMouseDown()
     {
-        ability.startAttack();
+        ability.ReturnTargets();
     }
 
 
