@@ -8,8 +8,11 @@ public class BattleManager : MonoBehaviour
     public static int numberOfTargets;
     public static int targetsSelected;
 
-    [SerializeField]
+    public List<Ability> abilities;
+
+
     public static AbilityTargeting target;
+    public static Ability currentAbility;
 
     
     public enum GameState

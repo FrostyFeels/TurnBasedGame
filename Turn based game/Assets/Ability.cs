@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Ability : MonoBehaviour
 {
+    private BattleManager battle;
 
     public string abilityName;
     public string description;
     public AbilityTargeting[] attack;
 
 
+    public void Start()
+    {
+        battle = GameObject.Find("BattleManager").GetComponent<BattleManager>();
+    }
 
     public void startAttack()
     {
@@ -24,6 +29,7 @@ public class Ability : MonoBehaviour
         foreach (AbilityTargeting _attack in attack)
         {
             _attack.ChooseTargets();
+            battle.abilities.Add(this); 
         }
     }
 

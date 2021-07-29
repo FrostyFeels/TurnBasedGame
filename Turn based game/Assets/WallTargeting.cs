@@ -12,8 +12,4 @@ public class WallTargeting : MonoBehaviour
             targets.Add(collision.gameObject);
         }
     }
-    public void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.Log("Hmmm");
-    }
 }
