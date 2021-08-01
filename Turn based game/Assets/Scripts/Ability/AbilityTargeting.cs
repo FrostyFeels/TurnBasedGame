@@ -13,7 +13,6 @@ public class AbilityTargeting
     [Header("Targets")]
     public int rows;
     public int procChance;
-    public TargetScript targetscript;
     public TargetMode targetMode;
     public GameObject[] targets;
     
@@ -50,7 +49,7 @@ public class AbilityTargeting
                 break;
             case TargetMode.RandomChance:
             case TargetMode.RandomEnemy:
-                esm.SetRows(procChance);
+                esm.SetChance(procChance);
                 break;
             case TargetMode.All:
                 esm.SetAll();

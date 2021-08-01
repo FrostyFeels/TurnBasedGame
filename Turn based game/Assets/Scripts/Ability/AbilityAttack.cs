@@ -8,6 +8,6 @@ public class AbilityAttack
 {
     public void DoAttack()
     {
-
+        //doe schade
     }
 }

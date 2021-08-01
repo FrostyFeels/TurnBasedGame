@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - TaggedEnemy
   - AttackPoint
+  - ChosenTarget
   layers:
   - Default
   - TransparentFX

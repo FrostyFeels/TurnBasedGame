@@ -60,13 +60,15 @@ public class EnemySelectorManager : MonoBehaviour
             }
     }
 
-    public void SetChance(int targetsNeeded)
+    public void SetChance(int chance)
     {
         switch (targetMode)
         {
             case AbilityTargeting.TargetMode.RandomChance:
+                randomChance.GetTargets(targeting,chance);
                 break;
             case AbilityTargeting.TargetMode.RandomEnemy:
+                randomEnemy.GetTargets(targeting, chance);
                 break;
         }
     }
@@ -76,6 +78,7 @@ public class EnemySelectorManager : MonoBehaviour
         switch (targetMode)
         {
             case AbilityTargeting.TargetMode.All:
+                all.GetTargets(targeting, 5);
                 break;
         }
     }
