@@ -8,10 +8,18 @@ public class SelectedTarget : MonoBehaviour
     {
         if(BattleManager.gameState == BattleManager.GameState.targetSelecting)
         {
-            gameObject.tag = "TaggedEnemy";
-            BattleManager.targetsSelected++;
-            Debug.Log("Something was done");
+            if (gameObject.CompareTag("Enemy")) 
+            {
+                gameObject.tag = "TaggedEnemy";
+                EnemySelectorManager.targetsSelected++;
+            }
+
+            if(gameObject.CompareTag("AttackPoint"))
+            {
+                Debug.Log("LOL NO");
+                gameObject.tag = "ChosenTarget";
+                EnemySelectorManager.targetsSelected++;
+            }              
         }
     }
-
 }

@@ -7,10 +7,12 @@ public class AbilityTargeting
 {
     public enum TargetMode
     {
-        selected, frontRow, middleRow, backRow, straight, diagonal, all
+        Selected, Row, Columm, Diagonal, RandomChance, RandomEnemy, All 
     }
 
     [Header("Targets")]
+    public int rows;
+    public int procChance;
     public TargetScript targetscript;
     public TargetMode targetMode;
     public GameObject[] targets;
@@ -31,34 +33,27 @@ public class AbilityTargeting
     }
 
     public void ChooseTargets()
-    { 
+    {
+        BattleManager.gameState = BattleManager.GameState.targetSelecting;
+        EnemySelectorManager esm = GameObject.Find("ESM").GetComponent<EnemySelectorManager>();
+        esm.SetTargetMode(targetMode, this);
+
         switch (targetMode)
         {
-            case TargetMode.selected:
-                BattleManager.numberOfTargets = targets.Length;
-                BattleManager.gameState = BattleManager.GameState.targetSelecting;
-                BattleManager.WaitForTargetsToBeSelected(this);
+            case TargetMode.Selected:      
+                esm.SetTargets(targets.Length);
                 break;
-            case TargetMode.frontRow:
-                targets = targetscript.FrontRow();
+            case TargetMode.Row:
+            case TargetMode.Columm:
+            case TargetMode.Diagonal:
+                esm.SetRows(rows);
                 break;
-            case TargetMode.middleRow:
-                targets = targetscript.MiddleRow();
+            case TargetMode.RandomChance:
+            case TargetMode.RandomEnemy:
+                esm.SetRows(procChance);
                 break;
-            case TargetMode.backRow:
-                targets = targetscript.BackRow();
-                break;
-            case TargetMode.straight:
-                targets = targetscript.FrontRow();
-                break;
-            case TargetMode.diagonal:
-                targets = targetscript.FrontRow();
-                break;
-            case TargetMode.all:
-                targets = targetscript.all();
-
-                break;
-            default:
+            case TargetMode.All:
+                esm.SetAll();
                 break;
         }
     }

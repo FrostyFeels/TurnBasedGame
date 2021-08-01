@@ -29,7 +29,7 @@ public class Ability : MonoBehaviour
         foreach (AbilityTargeting _attack in attack)
         {
             _attack.ChooseTargets();
-            battle.abilities.Add(this); 
+            battle.abilities.Add(this);
         }
     }
 

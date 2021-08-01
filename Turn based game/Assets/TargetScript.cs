@@ -20,8 +20,6 @@ public class TargetScript
         {
             _taggedEnemy.tag = "Enemy";
         }
-        Debug.Log(target);
-
         return taggedenemies;
    
     }
@@ -54,10 +52,7 @@ public class TargetScript
 
     }
 
-    public GameObject[] all()
-    {
-        return GameObject.FindGameObjectsWithTag("Enemy");
-    }
+
 
 
 }

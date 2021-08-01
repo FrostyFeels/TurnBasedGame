@@ -22,14 +22,11 @@ public class ShowScrollbarItems : MonoBehaviour
 
         numberOfAttack = battle.abilities.Count;
 
-        if(numberOfAttack != oldNumberOfAttack)
+        if (numberOfAttack != oldNumberOfAttack && numberOfAttack > oldNumberOfAttack)
         {
             GameObject attackPrefab = Instantiate(attack, transform);
             ChangeScrollbarText change = attackPrefab.GetComponent<ChangeScrollbarText>();
             change.ability = battle.abilities[numberOfAttack-1];
         }
     }
-
-
-
 }
