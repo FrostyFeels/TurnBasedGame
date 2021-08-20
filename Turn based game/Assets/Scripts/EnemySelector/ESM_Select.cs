@@ -11,7 +11,7 @@ public class ESM_Select : ESM_Main
 
     public override void SendTargets()
     {
-        base.SendTargets();
+       
 
         GameObject[] taggedenemies = GameObject.FindGameObjectsWithTag("TaggedEnemy");
         foreach (GameObject _taggedEnemy in taggedenemies)
@@ -20,7 +20,11 @@ public class ESM_Select : ESM_Main
         }
 
         targeting.targets = taggedenemies;
-        this.enabled = false;
+
+        base.SendTargets();
+       
+
+        
     }
 
     public void Update()

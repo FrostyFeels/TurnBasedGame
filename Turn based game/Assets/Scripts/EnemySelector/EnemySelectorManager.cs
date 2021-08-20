@@ -24,6 +24,9 @@ public class EnemySelectorManager : MonoBehaviour
     public AbilityTargeting.TargetMode targetMode;
     public AbilityTargeting targeting;
 
+    public GameObject chooseTargets;
+    public GameObject chooseLanes;
+
     public void SetTargetMode(AbilityTargeting.TargetMode targetmode, AbilityTargeting target)
     {
         targetMode = targetmode;
@@ -32,30 +35,38 @@ public class EnemySelectorManager : MonoBehaviour
 
     public void SetTargets(int targetsNeeded)
     {
+
+        chooseTargets.SetActive(true);
         switch (targetMode)
         {
             case AbilityTargeting.TargetMode.Selected:
                 select.enabled = true;
                 select.GetTargets(targeting, targetsNeeded);
+                select.text = chooseTargets;
                 break;
         }
     }
 
     public void SetRows(int rows)
     {
+        chooseLanes.SetActive(true);
             switch (targetMode)
             {
                 case AbilityTargeting.TargetMode.Row:
                 row.enabled = true;
+                row.text = chooseLanes;
                 row.GetTargets(targeting, rows);
+                
                     break;
                 case AbilityTargeting.TargetMode.Columm:
                 colum.enabled = true;
                 colum.GetTargets(targeting, rows);
+                colum.text = chooseLanes;
                 break;
                 case AbilityTargeting.TargetMode.Diagonal:
                 diagonal.enabled = true;
                 diagonal.GetTargets(targeting, rows);
+                diagonal.text = chooseLanes;
                 break;
             }
     }

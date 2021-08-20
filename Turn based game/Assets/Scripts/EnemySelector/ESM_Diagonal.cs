@@ -39,9 +39,8 @@ public class ESM_Diagonal : ESM_Main
 
     public override void SendTargets()
     {
-        base.SendTargets();
-
         targeting.targets = targets.ToArray();
+        base.SendTargets();
     }
 
     public void Update()

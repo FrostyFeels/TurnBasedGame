@@ -16,7 +16,6 @@ public class ESM_RandomEnemy : ESM_Main
 
     public override void SendTargets()
     {
-        base.SendTargets();
 
         allTargets = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -30,5 +29,7 @@ public class ESM_RandomEnemy : ESM_Main
         }
 
         targeting.targets = targets.ToArray();
+        base.SendTargets();
+
     }
 }

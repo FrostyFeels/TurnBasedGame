@@ -13,12 +13,24 @@ public class GetCards : MonoBehaviour
     {
         for (int i = 0; i < abilities.Length; i++)
         {
-            cards[i].SetActive(true);
-            TextMeshPro text = cards[i].GetComponentInChildren<TextMeshPro>();
-            text.text = abilities[i].description;
+            if (CheckCardValidation(abilities[i])) {
+                cards[i].SetActive(true);
+                TextMeshPro text = cards[i].GetComponentInChildren<TextMeshPro>();
+                text.text = abilities[i].stats.description;
 
-            SelectCard selectCard = cards[i].GetComponent<SelectCard>();
-            selectCard.ability = abilities[i];
+                SelectCard selectCard = cards[i].GetComponent<SelectCard>();
+                selectCard.ability = abilities[i];
+            }
         }
+    }
+
+    public bool CheckCardValidation(Ability ability)
+    {
+        if(ability.stats.cooldownEnd <= BattleManager.turn)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

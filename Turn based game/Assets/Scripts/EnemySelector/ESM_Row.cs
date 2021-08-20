@@ -39,9 +39,10 @@ public class ESM_Row : ESM_Main
 
     public override void SendTargets()
     {
-        base.SendTargets();
 
         targeting.targets = targets.ToArray();
+        base.SendTargets();
+
     }
 
     public void Update()

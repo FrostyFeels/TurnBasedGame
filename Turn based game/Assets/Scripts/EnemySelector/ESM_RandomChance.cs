@@ -18,8 +18,6 @@ public class ESM_RandomChance : ESM_Main
 
     public override void SendTargets()
     {
-        base.SendTargets();
-
         allTargets = GameObject.FindGameObjectsWithTag("Enemy");
 
         for (int i = 0; i < chance; i++)
@@ -27,8 +25,8 @@ public class ESM_RandomChance : ESM_Main
             targets.Add(allTargets[Random.Range(0, allTargets.Length - 1)]);
         }
        
-
         targeting.targets = targets.ToArray();
+        base.SendTargets();
     }
 
 }

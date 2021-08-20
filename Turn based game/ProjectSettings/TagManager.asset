@@ -8,6 +8,7 @@ TagManager:
   - TaggedEnemy
   - AttackPoint
   - ChosenTarget
+  - Downed
   layers:
   - Default
   - TransparentFX
