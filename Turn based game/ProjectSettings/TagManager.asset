@@ -9,6 +9,8 @@ TagManager:
   - AttackPoint
   - ChosenTarget
   - Downed
+  - ally
+  - Selected
   layers:
   - Default
   - TransparentFX

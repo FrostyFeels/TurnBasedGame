@@ -10,8 +10,8 @@ public class CharacterHealth : MonoBehaviour
 
     public void Start()
     {
-        health = stats.stats.hp;
-        armor = stats.stats.armor;
+        health = stats.currentStat.hp;
+        armor = stats.currentStat.armor;
     }
 
 

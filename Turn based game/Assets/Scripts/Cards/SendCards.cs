@@ -13,8 +13,11 @@ public class SendCards : MonoBehaviour
     }
     public void OnMouseDown()
     {
-        getCards.abilities = abilities;
-        getCards.SetCardsActive();
+        if(BattleManager.gameState == BattleManager.GameState.idle)
+        {
+            getCards.abilities = abilities;
+            getCards.SetCardsActive();
+        }
     }
 
 }

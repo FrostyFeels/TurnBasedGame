@@ -7,20 +7,27 @@ public class BattleManager : MonoBehaviour
 {
     public GameObject[] allies;
     public GameObject[] enemies;
+    
     public List<GameObject> targets;
     public List<Ability.Stats> abilities;
+    public static bool finishSwapping;
 
     public static int turn;
 
     public enum GameState
     {
+        idle,
         cardSelecting,
-        targetSelecting,
-        finishedTargetSelecting
-        
+        swappingCharacters,
+        targetSelecting    
     }
 
     public static GameState gameState;
+
+    public void Start()
+    {
+        gameState = GameState.idle;
+    }
 
 
     public void StartAttacks()
